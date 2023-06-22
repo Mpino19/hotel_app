@@ -1,2 +1,35 @@
-<h1>Home#index</h1>
-<p>Find me in app/views/home/index.html.erb</p>
+<%= render "shared/header" %>
+<div class="firstView">
+  <div class="firstView-title">
+    <h1>Hotel Shareで<br>
+      まだ体験したことのない<br>
+      旅をしよう<br>
+    </h1>
+  </div>
+  <div class="firstView-search">
+    <form action="送信先のURL">
+      <input type="text" name="area" placeholder="エリア名を入力" class="main-area-search"><br>
+      <input type="sbmit" name="commit" value="検索" class="main-search-button">
+    </form>
+  </div>
+</div>
+<div class="recommend-container">
+  <div class="recommend-title">
+    <h2>おすすめのエリア</h2>
+  </div>
+  <div class="recommend-areas"></a>
+    <a class="recommend-tokyo recommend-image" href="">
+      <span>Tokyo</span>
+    </a>
+    <a class="recommend-osaka recommend-image" href="">
+      <span>Osaka</span>
+    </a>
+    <a class="recommend-kyoto recommend-image" href="">
+      <span>Kyoto</span>
+    </a>
+    <a class="recommend-sapporo recommend-image" href="">
+      <span>Sapporo</span>
+    </a>
+  </div>
+</div>
+<%= render "shared/footer" %>
