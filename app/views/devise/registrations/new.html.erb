@@ -23,7 +23,7 @@
     <div class="actions">
       <%= f.submit "新しいアカウントを作成", class: "new_account" %>
     </div>
-    <%= button_to "アカウントをお持ちの方はログイン", "/users/sign_in", class: "white-button" %>
+    <%= button_to "アカウントをお持ちの方はログイン", new_user_session_path, class: "white-button" %>
     <% end %>
   </div>
 </div>
