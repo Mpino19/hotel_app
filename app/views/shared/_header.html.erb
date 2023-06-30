@@ -2,8 +2,12 @@
   <div class="header-container">
     <%= link_to "Hotel Share", "/", class: "main-logo" %>
     <ul class="header-nav">
+      <% if user_signed_in? %>
+      <%= current_user.name %>
+      <% else %>
       <li><%= link_to "ログイン", new_user_session_path, class: "white-letter-link" %></li>
       <li><%= link_to "新規登録", new_user_registration_path, class: "orange-button" %></li>
+      <% end %>
     </ul>
   </div>
 </div>
