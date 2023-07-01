@@ -2,7 +2,7 @@
 <div class="background-gray">
   <div class="users-form-container">
     <p class="users-new">ログイン</p>
-    <%= form_with model: @user do |f| %>
+    <%= form_with model: @user, url: user_session_path, id: 'new_user', class: 'new_user', local: true do |f| %>
       <div class="field">
         <%= f.label :email, "メールアドレス" %><br>
         <%= f.email_field :email, autofocus: true, placeholder: "メールアドレスを入力", autocomplete: "email", class: "text-field" %>

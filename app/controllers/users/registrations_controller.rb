@@ -3,19 +3,21 @@
 class Users::RegistrationsController < Devise::RegistrationsController
   # before_action :configure_sign_up_params, only: [:create]
   # before_action :configure_account_update_params, only: [:update]
-
+  before_action :authenticate_user,{only:[:edit,:update]}
+  before_action :forbid_login_user, {only: [:new, :create]}
   # GET /resource/sign_up
   def new
-    super
+    @user = User.new
   end
 
   # POST /resource
   def create
     @user = User.new(user_params)
-
+    @icon_image_name =  "default_user.jpg"
     if @user.save
-      flash[:success] = "スケジュールを登録しました"
-      redirect_to :users
+      session[:user_id] = @user.id
+      flash[:success] = "会員登録が完了しました"
+      redirect_to root_path
     else
       render :new
     end

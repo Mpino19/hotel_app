@@ -1,7 +1,26 @@
-<h1>about me</h1>
-
-<h3>ユーザー名</h3>
-<%= @user.name %>
-<h3>メールアドレス</h3>
-<%= @user.email %>
+<%= render "shared/header" %>
+<div class="user-wrapper">
+  <h2>設定</h2>
+  <div class="user-container">
+    <div class="user-left-menu">
+      <ul>
+        <li><%= link_to "アカウント", "/users/account", class: "user-nav-item" %></li>
+        <li><%= link_to "プロフィール", "/users/profile", class: "user-nav-item" %></li>
+      </ul>
+    </div>
+    <div class="user-info">
+      <div class="user-info-title">
+        <h2>プロフィール</h2>
+        <%= link_to "編集", "/users/account/edit, class: ""blue-link" %>
+      </div>
+      <div class="user-info-content">
+        <label></label>
+        <p></p>
+        <label></label>
+        <p></p>
+      </div>
+    </div>
+  </div>
+</div>
+<%= render "shared/footer" %>
 
