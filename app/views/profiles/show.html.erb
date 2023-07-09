@@ -1,3 +1,4 @@
+
 <%= render "shared/header" %>
 <div class="user-wrapper">
   <div class="user-container">
@@ -10,15 +11,17 @@
     </div>
     <div class="user-info">
       <div class="user-info-title">
-        <h2>アカウント</h2>
-        <%= link_to "＜編集＞", edit_user_registration_path(:id), class: "blue-link" %>
+        <h2>プロフィール</h2>
+        <%= link_to "＜編集＞", profile_edit_path, class: "blue-link" %>
       </div>
       <div class="user-info-content">
       <div class="account-content">
-        <label class="account-title">メールアドレス</label>
-        <div class="account-item"><%= current_user.email %></div>
-        <label class="account-title">パスワード</label>
-        <div class="account-item"><p>******</p></div>
+        <label class="account-title">アイコン画像</label>
+        <div class="account-item"><%= current_user.id %></div>
+        <label class="account-title">名前</label>
+        <div class="account-item"><%= current_user.name %></div>
+        <label class="account-title">自己紹介</label>
+        <div class="account-item"><%= current_user.self_introduce %></div>
       </div>
     </div>
   </div>

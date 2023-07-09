@@ -59,13 +59,27 @@ class Users::RegistrationsController < Devise::RegistrationsController
   #   devise_parameter_sanitizer.permit(:account_update, keys: [:attribute])
   # end
 
+  def profile_edit
+
+  end
+
+  def profile_update
+    current_user.assign_attributes(account_update_params)
+    if current_user.save
+      redirect_to root_path, notice: "ユーザー情報を更新しました"
+    else
+      render "profile_edit"
+    end
+  end
 
   private
 
   def user_params
-    params.require(:user).permit(:name, :email, :password)
+    params.require(:user).permit(:name, :email, :password, :icon_image_name, :self_introduce)
   end
-
+  def account_update_params
+    params.require(:user).permit(:name, :email, :password, :icon_image_name, :self_introduce)
+  end
 
   # The path used after sign up.
   #def after_sign_up_path_for(resource)

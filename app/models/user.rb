@@ -3,5 +3,8 @@ class User < ApplicationRecord
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
-  
+  has_one_attached :icon_image_name
+  validates :email, {presence: true, uniqueness: true}
+  validates :name, presence: true
+  has_one_attached :icon_image_name
 end

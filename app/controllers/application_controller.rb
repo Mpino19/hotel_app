@@ -8,6 +8,7 @@ class ApplicationController < ActionController::Base
 
   def configure_permitted_parameters
     devise_parameter_sanitizer.permit(:sign_up, keys: [:name])
+    devise_parameter_sanitizer.permit(:profile_update, keys: [:name, :icon_image_name, :self_introduce])
   end
   def authenticate_user
     if current_user == nil

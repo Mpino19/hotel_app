@@ -16,7 +16,7 @@
             <li class="divider"></li>
             <li><%= link_to "予約済み一覧", root_path, class: "dropdown-list" %></li>
             <li><%= link_to "登録済み一覧", root_path, class: "dropdown-list" %></li>
-            <li><%= link_to "アカウント設定", root_path, class: "dropdown-list" %></li>
+            <li><%= link_to "アカウント設定", user_path(:id), class: "dropdown-list" %></li>
             <li class="divider"></li>
             <li><%= link_to "ログアウト", destroy_user_session_path, method: "delete" %></li>
           </ul>
