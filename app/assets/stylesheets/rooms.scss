@@ -1,3 +1,15 @@
-// Place all the styles related to the rooms controller here.
-// They will automatically be included in application.css.
-// You can use Sass (SCSS) here: https://sass-lang.com/
+.room-wrap {
+  width: 40%;
+  margin:0 auto 50px;
+}
+.new-room-title {
+  font-size: 30px;
+}
+.new-room-button {
+  font-size: 18px;
+  color: white;
+  background-color: orange;
+  width: 100px;
+  height: 40px;
+  margin: 10px 0;
+}

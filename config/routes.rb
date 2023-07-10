@@ -1,9 +1,7 @@
 Rails.application.routes.draw do
   resources :uploads
   root 'home#index'
-  get 'home/show'
   devise_for :users
-
   resources :users
   devise_scope :user do
     get 'profile_edit', to: 'users/registrations#profile_edit', as: 'profile_edit'
@@ -12,4 +10,5 @@ Rails.application.routes.draw do
   resources :profiles, only: [:show, :edit, :update]
 
   resources :rooms
+
 end
