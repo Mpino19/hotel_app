@@ -10,4 +10,6 @@ Rails.application.routes.draw do
     patch 'profile_update', to: 'users/registrations#profile_update', as: 'profile_update'
   end
   resources :profiles, only: [:show, :edit, :update]
+
+  resources :rooms
 end
