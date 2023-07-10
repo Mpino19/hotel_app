@@ -16,15 +16,20 @@
       </div>
       <div class="user-info-content">
       <div class="account-content">
-        <label class="account-title">アイコン画像</label>
-        <div class="account-item"><%= current_user.id %></div>
-        <label class="account-title">名前</label>
-        <div class="account-item"><%= current_user.name %></div>
-        <label class="account-title">自己紹介</label>
+        <label class="account-title"><アイコン画像></label>
+          <div class="account-item">
+            <% if current_user.icon_image_name.attached? %>
+              <%= image_tag current_user.icon_image_name, class: "avatar-image" %>
+            <% else %>
+              <%= image_tag "default-avatar.png", class: "avatar-image" %>
+            <% end %>
+          </div>
+        <label class="account-title"><名前></label>
+          <div class="account-item"><%= current_user.name %></div>
+        <label class="account-title"><自己紹介></label>
         <div class="account-item"><%= current_user.self_introduce %></div>
       </div>
     </div>
   </div>
 </div>
 <%= render "shared/footer" %>
-
