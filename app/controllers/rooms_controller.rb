@@ -1,8 +1,8 @@
 class RoomsController < ApplicationController
   def index
-    @users = User.all
-    @rooms = Room.all
-    @room = Room.find_by()
+    @user = current_user
+    @room = Room.new
+    @rooms = @user.rooms
   end
   def new
     @room = Room.new
