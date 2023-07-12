@@ -20,6 +20,8 @@ class RoomsController < ApplicationController
   end
 
   def show
+    @user = current_user
+    @room = Room.find(params[:id])
   end
 
   def edit
