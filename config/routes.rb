@@ -9,6 +9,11 @@ Rails.application.routes.draw do
   end
   resources :profiles, only: [:show, :edit, :update]
 
-  resources :rooms
 
+  resources :rooms do
+    collection do
+      get 'search'
+      get 'search_result'
+    end
+  end
 end
