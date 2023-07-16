@@ -58,24 +58,14 @@ h2 {
   background-position: 50%;
   width: 300px;
   border-radius: 10px;
+}
+.recommend-box {
   position: relative;
 }
-.recommend-image span {
+.recommend-box p {
   color: white;
   position: absolute;
   left: 20px;
   bottom: 5px;
   font-size: 30px;
-}
-.recommend-tokyo {
-  background-image: url("https://rails-02-sample.herokuapp.com/assets/home/recommend-area/tokyo.jpg");
-}
-.recommend-osaka {
-  background-image: url("https://rails-02-sample.herokuapp.com/assets/home/recommend-area/osaka.jpg")
-}
-.recommend-kyoto {
-  background-image: url("https://rails-02-sample.herokuapp.com/assets/home/recommend-area/kyoto.jpg")
-}
-.recommend-sapporo {
-  background-image: url("https://rails-02-sample.herokuapp.com/assets/home/recommend-area/sapporo.jpg")
 }

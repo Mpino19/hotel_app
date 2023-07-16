@@ -17,19 +17,23 @@
   <div class="recommend-title">
     <h2>おすすめのエリア</h2>
   </div>
-  <div class="recommend-areas"></a>
-    <a class="recommend-tokyo recommend-image" href="">
-      <span>Tokyo</span>
-    </a>
-    <a class="recommend-osaka recommend-image" href="">
-      <span>Osaka</span>
-    </a>
-    <a class="recommend-kyoto recommend-image" href="">
-      <span>Kyoto</span>
-    </a>
-    <a class="recommend-sapporo recommend-image" href="">
-      <span>Sapporo</span>
-    </a>
+  <div class="recommend-areas">
+    <div class="recommend-box">
+      <%= link_to image_tag("tokyo.jpg", class: "recommend-image"), search_result_rooms_path(area: "東京") %>
+      <p>Tokyo</p>
+    </div>
+    <div class="recommend-box">
+      <%= link_to image_tag("osaka.jpg", class: "recommend-image"), search_result_rooms_path(area: "大阪") %>
+      <p>Osaka</p>
+    </div>
+    <div class="recommend-box">
+      <%= link_to image_tag("kyoto.jpg", class: "recommend-image"), search_result_rooms_path(area: "京都") %>
+      <p>Kyoto</p>
+    </div>
+    <div class="recommend-box">
+      <%= link_to image_tag("sapporo.jpg", class: "recommend-image"), search_result_rooms_path(area: "札幌") %>
+      <p>Sapporo</p>
+    </div>
   </div>
 </div>
 <%= render "shared/footer" %>

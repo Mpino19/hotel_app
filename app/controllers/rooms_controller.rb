@@ -1,5 +1,4 @@
 class RoomsController < ApplicationController
-  before_action :set_q
 
   def index
     @user = current_user
@@ -53,10 +52,6 @@ class RoomsController < ApplicationController
   end
 
   private
-
-  def set_q
-    @q = Room.ransack(params[:q])
-  end
 
   def room_params
     params.require(:room).permit(:name, :introduction, :price, :address, :room_image).merge(user_id: current_user.id)

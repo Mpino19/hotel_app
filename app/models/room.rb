@@ -8,5 +8,4 @@ class Room < ApplicationRecord
   def self.search_word(keyword)
     where(["name like? OR introduction like?", "%#{keyword}%","%#{keyword}%"]) 
   end
-  def self.search()
 end
