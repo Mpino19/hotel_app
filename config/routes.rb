@@ -15,5 +15,6 @@ Rails.application.routes.draw do
       get 'search'
       get 'search_result'
     end
+    resources :reservations
   end
 end
