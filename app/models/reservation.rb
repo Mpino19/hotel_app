@@ -4,6 +4,7 @@ class Reservation < ApplicationRecord
   has_one_attached :room_image
   validate :start_end_check
   validate :start_check
+  validates :people, numericality: {only_integer: true, greater_than_or_equal_to: 1}
 
   def start_end_check
     errors.add("チェックアウトはチェックインより後を選択してください") if self.start_date > self.end_date
