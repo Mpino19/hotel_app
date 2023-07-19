@@ -22,8 +22,9 @@
         <p class="detail-introduction"><%= @room.introduction %>
       </div>
       <div class="room-content-bottom">
-      <%= form_for [@room, @room.reservations.new] do |f| %>
+      <%= form_with model: @reservation, url: reservations_confirm_path, method: :post do |f| %>
         <%= f.hidden_field :room_id, value: @room.id %>
+        <%= f.hidden_field :user_id, value: @user.id %>
         <div class="reservation-form">
           <div class="input-form">
             <label>チェックイン</label><br>

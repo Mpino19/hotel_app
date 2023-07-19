@@ -9,12 +9,15 @@ Rails.application.routes.draw do
   end
   resources :profiles, only: [:show, :edit, :update]
 
-
   resources :rooms do
     collection do
       get 'search'
       get 'search_result'
     end
     resources :reservations
+      collection do
+        get 'confirm'
+      end
   end
+  post 'reservations/confirm'
 end

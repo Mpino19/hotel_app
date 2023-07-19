@@ -30,7 +30,7 @@
 .user-header-nav {
   display: flex;
   align-items: center;
-  margin-top: 10px;
+  margin: 10px 20px 0 0;
 }
 .dropdown {
   width: 200px;
@@ -43,6 +43,7 @@
 }
 .white-letter-link {
   color: white;
+  margin: 0;
 }
 .dropdown-menu {
   display: none;

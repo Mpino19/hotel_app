@@ -6,10 +6,16 @@ class ReservationsController < ApplicationController
   def new
     @reservation = Reservation.new
   end
-
   def create
-    @reservation = current_user.reservations.create(reservation_params)
-    redirect_to root_path
+    @user = current_user
+    @reservation = Reservation.new(reservation_params)
+    @reservation.save
+    redirect_to room_reservations_path
+  end
+  def confirm
+    @user = current_user
+    @reservation = Reservation.new(reservation_params)
+    @room = Room.find(params[:reservation][:room_id])
   end
 
 private
