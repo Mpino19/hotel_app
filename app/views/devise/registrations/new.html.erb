@@ -1,0 +1,29 @@
+<%= render "shared/header" %>
+<div class="background-gray">
+  <div class="users-form-container">
+    <p class="users-new">新規登録</p>
+    <%= form_with model: @user, url: user_registration_path, id: 'new_user', class: 'new_user', local: true do |f| %>
+      <%= render "devise/shared/error_messages" %>
+    <div class="field">
+      <%= f.label :name, "ユーザー名" %><br>
+      <%= f.text_field :name, autofocus: true, placeholder: "ユーザー名を入力", autocomplete: "name", class: "text-field" %>
+    </div>
+    <div class="field">
+      <%= f.label :email, "メールアドレス" %><br>
+      <%= f.email_field :email, placeholder: "メールアドレスを入力", autocomplete: "email", class: "text-field" %>
+    </div>
+    <div class="field">
+      <%= f.label :password, "パスワード" %><br>
+      <%= f.password_field :password, placeholder: "パスワードを入力", autocomplete: "new-password", class: "text-field" %>
+    </div>
+    <div class="field">
+      <%= f.label :password_confirmation, "確認用パスワード" %><br>
+      <%= f.password_field :password_confirmation, placeholder: "確認用パスワードを入力", autocomplete: "new-password", class: "text-field" %>
+    </div>
+    <div class="actions">
+      <%= f.submit "新しいアカウントを作成", class: "new_account" %>
+    </div>
+    <%= button_to "アカウントをお持ちの方はログイン", new_user_session_path, class: "white-button" %>
+    <% end %>
+  </div>
+</div>

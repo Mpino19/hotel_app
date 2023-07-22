@@ -1,0 +1,33 @@
+<div class="partial-header">
+  <div class="header-container">
+    <%= link_to "Hotel Share", "/", class: "main-logo" %>
+      <% if user_signed_in? %>
+        <div class="dropdown">
+          <ul class="user-header-nav">
+            <li><% if current_user.icon_image_name.attached? %>
+              <%= image_tag current_user.icon_image_name, class: "avatar-image" %>
+              <% else %>
+              <%= image_tag "default-avatar.png", class: "avatar-image" %>
+              <% end %>
+            </li>
+            <li><span class="white-letter-link"><%= "#{current_user.name}" %></span></li>
+          </ul>
+        </button>
+        <div class="dropdown-wrap">
+          <ul class="dropdown-menu">
+            <li><%= link_to "施設の新規登録", new_room_path, class: "dropdown-list" %></li>
+            <li><%= link_to "予約済み一覧", room_reservations_path(:id), class: "dropdown-list" %></li>
+            <li><%= link_to "登録済み一覧", rooms_path, class: "dropdown-list" %></li>
+            <li><%= link_to "アカウント設定", user_path(:id), class: "dropdown-list" %></li>
+            <li><%= link_to "ログアウト", destroy_user_session_path, method: "delete", class: "dropdown-list" %></li>
+          </ul>
+          </div>
+        </div>
+      <% else %>
+        <ul class="header-nav">
+          <li><%= link_to "ログイン", new_user_session_path, class: "white-letter-link" %></li>
+          <li><%= link_to "新規登録", new_user_registration_path, class: "orange-button" %></li>
+        </ul>
+      <% end %>
+  </div>
+</div>

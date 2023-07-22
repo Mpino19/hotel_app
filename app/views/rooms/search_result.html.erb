@@ -1,0 +1,36 @@
+<%= render "shared/header" %>
+<%= render "shared/search" %>
+<div class="room-serch-wrapper">
+  <% if @rooms.present? %>
+    <p class="sum-comment"><%= "#{@rooms.count}件見つかりました" %></p>
+    <table class="room-table">
+      <tr>
+        <th>画像</th>
+        <th>施設名</th>
+        <th>住所</th>
+        <th>紹介文</th>
+        <th>料金</th>
+        <th>リンク</th>
+      </tr>
+    <% @rooms.each do |room| %>
+      <tr>
+        <td>
+          <% if room.room_image.attached? %>
+            <%= image_tag room.room_image, class: "mini-room-image" %>
+          <% else %>
+            <%= image_tag "default-image.png", class: "mini-room-image" %>
+          <% end %>
+        </td>
+        <td><%= room.name %></td>
+        <td><%= room.address %></td>
+        <td><%= room.introduction %></td>
+        <td><%= "¥#{room.price}~" %></td>
+        <td><%= link_to "詳細", room_path(room.id), class: "result-button" %></td>
+      </tr>
+    <% end %>
+  </table>
+  <% else %>
+    <p class="sum-comment">検索結果が見つかりません</p>
+  <% end %>
+</div>
+<%= render "shared/footer" %>

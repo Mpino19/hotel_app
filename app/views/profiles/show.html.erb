@@ -1,0 +1,35 @@
+
+<%= render "shared/header" %>
+<div class="user-wrapper">
+  <div class="user-container">
+    <div class="user-left-menu">
+      <h2>設定</h2>
+        <ul>
+          <li><%= link_to "アカウント", user_path(:id), class: "user-nav-item" %></li>
+          <li><%= link_to "プロフィール", profile_path(:id), class: "user-nav-item" %></li>
+        </ul>
+    </div>
+    <div class="user-info">
+      <div class="user-info-title">
+        <h2>プロフィール</h2>
+        <%= link_to "＜編集＞", profile_edit_path, class: "blue-link" %>
+      </div>
+      <div class="user-info-content">
+      <div class="account-content">
+        <label class="account-title"><アイコン画像></label>
+          <div class="account-item">
+            <% if current_user.icon_image_name.attached? %>
+              <%= image_tag current_user.icon_image_name, class: "avatar-image" %>
+            <% else %>
+              <%= image_tag "default-avatar.png", class: "avatar-image" %>
+            <% end %>
+          </div>
+        <label class="account-title"><名前></label>
+          <div class="account-item"><%= current_user.name %></div>
+        <label class="account-title"><自己紹介></label>
+        <div class="account-item"><%= current_user.self_introduce %></div>
+      </div>
+    </div>
+  </div>
+</div>
+<%= render "shared/footer" %>

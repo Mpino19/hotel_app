@@ -1,3 +1,23 @@
 Rails.application.routes.draw do
-  # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
+  resources :uploads
+  root 'home#index'
+  devise_for :users
+  resources :users
+  devise_scope :user do
+    get 'profile_edit', to: 'users/registrations#profile_edit', as: 'profile_edit'
+    patch 'profile_update', to: 'users/registrations#profile_update', as: 'profile_update'
+  end
+  resources :profiles, only: [:show, :edit, :update]
+
+  resources :rooms do
+    collection do
+      get 'search'
+      get 'search_result'
+    end
+    resources :reservations
+      collection do
+        get 'confirm'
+      end
+  end
+  post 'reservations/confirm'
 end

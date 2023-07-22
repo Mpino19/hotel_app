@@ -1,0 +1,31 @@
+<%= render "shared/header" %>
+  <div class="room-index-wrap">
+    <div class="room-top">
+      <p class="room-title">登録済み施設一覧</p>
+    </div>
+      <table class="room-table">
+        <tr>
+          <th>画像</th>
+          <th>施設名</th>
+          <th>紹介文</th>
+          <th>料金</th>
+          <th>作成日</th>
+        </tr>
+        <% @rooms.each do |room| %>
+        <tr>
+          <td>
+            <% if room.room_image.attached? %>
+              <%= image_tag room.room_image, class: "mini-room-image" %>
+            <% else %>
+              <%= image_tag "default-image.png", class: "mini-room-image" %>
+            <% end %>
+          </td>
+          <td><%= link_to "#{room.name}", room_path(room.id) %></td>
+          <td><%= room.introduction %></td>
+          <td><%= room.price %></td>
+          <td><%= room.created_at.strftime("%Y/%m/%d") %></td>
+        </tr>
+        <% end %>
+      </table>
+  </div>
+<%= render "shared/footer" %>

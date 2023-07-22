@@ -1,0 +1,39 @@
+<%= render "shared/header" %>
+<div class="firstView">
+  <div class="firstView-title">
+    <h1>Hotel Shareで<br>
+      まだ体験したことのない<br>
+      旅をしよう<br>
+    </h1>
+  </div>
+  <div class="firstView-search">
+    <%= form_with url: search_result_rooms_path, local: true, method: :get do |f| %>
+      <%= f.text_field :area, placeholder: "エリアを入力", class: "main-area-search" %><br>
+      <%= f.submit "検索", class: "main-search-button" %>
+    <% end %>
+  </div>
+</div>
+<div class="recommend-container">
+  <div class="recommend-title">
+    <h2>おすすめのエリア</h2>
+  </div>
+  <div class="recommend-areas">
+    <div class="recommend-box">
+      <%= link_to image_tag("tokyo.jpg", class: "recommend-image"), search_result_rooms_path(area: "東京") %>
+      <p>Tokyo</p>
+    </div>
+    <div class="recommend-box">
+      <%= link_to image_tag("osaka.jpg", class: "recommend-image"), search_result_rooms_path(area: "大阪") %>
+      <p>Osaka</p>
+    </div>
+    <div class="recommend-box">
+      <%= link_to image_tag("kyoto.jpg", class: "recommend-image"), search_result_rooms_path(area: "京都") %>
+      <p>Kyoto</p>
+    </div>
+    <div class="recommend-box">
+      <%= link_to image_tag("sapporo.jpg", class: "recommend-image"), search_result_rooms_path(area: "札幌") %>
+      <p>Sapporo</p>
+    </div>
+  </div>
+</div>
+<%= render "shared/footer" %>

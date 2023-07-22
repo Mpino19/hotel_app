@@ -1,0 +1,41 @@
+.reservation-form {
+  background-color: white;
+  display: flex;
+  justify-content: space-between;
+  padding: 20px;
+  margin-top: 50px;
+}
+.input-form {
+  color: gray;
+}
+.input-box {
+  color: gray;
+  width: 150px;
+  height: 30px;
+}
+.reservation-button {
+  height: 40px;
+  width: 100%;
+  background-color: orange;
+  color: white;
+  font-size: 25px;
+  text-align: center;
+  margin: 30px 0 10px;
+  border-radius: 5px;
+}
+.reservation-title {
+  font-size: 30px;
+}
+.confirm-page {
+  width: 40%;
+  margin: 0 auto 200px;
+}
+.confirm-title {
+  font-size: 30px;
+}
+.confirm-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 10px;
+}

@@ -1,0 +1,40 @@
+<%= render "shared/header" %>
+  <div class="confirm-page">
+    <div class="confirm-container">
+      <p class="confirm-title">予約内容の確認</p>
+      
+        <div class="confirm-item">
+          <p class="confirm-label">チェックイン</p>
+          <%= @reservation.start_date.strftime("%Y/%m/%d") %>
+        </div>
+        <div class="confirm-item">
+          <p class="confirm-label">チェックアウト</p>
+          <%= @reservation.end_date.strftime("%Y/%m/%d") %>
+        </div>
+        <div class="confirm-item">
+          <p class="confirm-label">日数</p>
+          <%= "#{(@reservation.end_date-@reservation.start_date).to_i/1.day}日" %>
+        </div>
+        <div class="confirm-item">
+          <p class="confirm-label">人数</p>
+          <%= "#{@reservation.people}人" %>
+        </div>
+        <div class="confirm-item">
+          <p class="confirm-label">お支払い金額</p>
+          <%= "¥#{@reservation.room.price*@reservation.people*(@reservation.end_date-@reservation.start_date).to_i/1.day}" %>
+        </div>
+      
+      <p class="confirm-message">上記内容でよろしければ確定ボタンを押してください</p>
+      <%= form_with model: @reservation, url: room_reservations_path(:room_id) do |f| %>
+      <%= f.hidden_field :room_id, value: @reservation.room_id %>
+      <%= f.hidden_field :user_id, value: @user.id %>
+      <%= f.hidden_field :start_date, value: @reservation.start_date  %>
+      <%= f.hidden_field :end_date, value: @reservation.end_date %>
+      <%= f.hidden_field :people, value: @reservation.people %>
+
+      <%= f.submit "確定", class: "reservation-button" %>
+      <% end %>
+      <%= link_to "<キャンセル>", root_path %>
+    </div>
+  </div>
+<%= render "shared/footer" %>
